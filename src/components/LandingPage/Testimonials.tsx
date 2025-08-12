@@ -1,5 +1,4 @@
 import { Quote, Star } from "lucide-react";
-import React from "react";
 
 function Testimonials() {
   return (

@@ -41,6 +41,7 @@ const variantStyles: Record<ButtonVariant, string> = {
 };
 
 export default function Button(props: ButtonProps) {
+  // Remove 'as any' here for proper typing
   const {
     variant = "primary",
     size = "md",
@@ -51,9 +52,8 @@ export default function Button(props: ButtonProps) {
     leftIcon,
     rightIcon,
     to,
-    disabled,
     ...rest
-  } = props as any;
+  } = props;
 
   const baseClasses =
     "inline-flex items-center justify-center transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black";
@@ -61,6 +61,7 @@ export default function Button(props: ButtonProps) {
   const width = fullWidth ? "w-full" : "";
   const gap = leftIcon || rightIcon ? "gap-2" : "";
 
+  // TS now knows variant and size are properly typed
   const classes = cn(
     baseClasses,
     rounded,
@@ -68,7 +69,6 @@ export default function Button(props: ButtonProps) {
     gap,
     sizeStyles[size],
     variantStyles[variant],
-    disabled && "opacity-60 pointer-events-none",
     className
   );
 
@@ -76,9 +76,8 @@ export default function Button(props: ButtonProps) {
     return (
       <Link
         to={to}
-        aria-disabled={disabled ? "true" : undefined}
         className={classes}
-        {...(rest as any)}
+        {...(rest as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
       >
         {leftIcon}
         {children}
@@ -88,12 +87,13 @@ export default function Button(props: ButtonProps) {
   }
 
   return (
-    <button disabled={disabled} className={classes} {...(rest as any)}>
+    <button
+      className={classes}
+      {...(rest as React.ButtonHTMLAttributes<HTMLButtonElement>)}
+    >
       {leftIcon}
       {children}
       {rightIcon}
     </button>
   );
 }
-
-
