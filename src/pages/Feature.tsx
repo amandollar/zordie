@@ -1,8 +1,8 @@
 //Features
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import HeroSection from "../components/Features/Hero";
-import AxisFeatureSection from "../components/Features/AxisFeature";
+import HeroSection from "../components/FeaturesPages/Hero";
+import AxisFeatureSection from "../components/FeaturesPages/AxisFeature";
 
 const Feature = () => {
   return (
