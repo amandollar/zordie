@@ -36,6 +36,7 @@ export default function Navbar() {
     <nav className="w-full bg-white shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
+
           {/* Left: Logo */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -85,6 +86,7 @@ export default function Navbar() {
             transition={{ duration: 0.5 }}
             className="flex items-center space-x-4"
           >
+            {/* Get Started visible only on md+ */}
             <Button
               to="/get-started"
               variant="primary"
@@ -97,8 +99,10 @@ export default function Navbar() {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden text-gray-800 focus:outline-none"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              className="md:hidden text-gray-800 focus:outline-none p-2 rounded-md hover:bg-gray-100 transition"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              type="button"
             >
               {isMenuOpen ? (
                 <X size={24} className="rotate-180 transition-transform duration-300" />
@@ -137,19 +141,6 @@ export default function Navbar() {
                   </Link>
                 </motion.div>
               ))}
-              <motion.div variants={itemVariants}>
-                <Button
-                  to="/get-started"
-                  variant="primary"
-                  size="sm"
-                  pill
-                  fullWidth
-                  className="text-center"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Get Started
-                </Button>
-              </motion.div>
             </motion.div>
           </motion.div>
         )}
