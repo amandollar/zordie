@@ -1,3 +1,6 @@
+//Features
+
+
 import Navbar from "../components/Navbar";
 import HeroSection from "../components/Features/Hero";
 import AxisFeatureSection from "../components/Features/AxisFeature";
