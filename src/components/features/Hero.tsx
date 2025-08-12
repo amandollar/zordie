@@ -76,7 +76,7 @@ export default function HeroSection() {
             className="relative"
           >
             <img
-              src="https://visual.is/assets/overview/Filters_Dynamic_Dashboard-9cdef2929a645336daa0f7522d9c4781ebfe821b55bb6dc0703458d8003390d9.png"
+              src="./Dashboard.png"
               alt="Dashboard"
               className="rounded-2xl shadow-xl border border-gray-200"
             />
