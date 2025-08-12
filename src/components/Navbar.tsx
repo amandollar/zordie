@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Button from "./Button";
 
 const menuItems = [
   { name: "Features", href: "/features" },
@@ -36,7 +37,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Left: Logo */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
@@ -49,7 +50,7 @@ export default function Navbar() {
           </motion.div>
 
           {/* Desktop Menu */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
@@ -78,18 +79,21 @@ export default function Navbar() {
           </motion.div>
 
           {/* Right: Get Started / Mobile Toggle */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             className="flex items-center space-x-4"
           >
-            <Link
+            <Button
               to="/get-started"
-              className="hidden md:inline-block bg-black text-white text-sm px-5 py-2 rounded-full hover:opacity-90 transition-colors duration-200 hover:scale-105 transition-transform"
+              variant="primary"
+              size="sm"
+              pill
+              className="hidden md:inline-flex hover:scale-105 transition-transform"
             >
               Get Started
-            </Link>
+            </Button>
 
             {/* Mobile Menu Button */}
             <button
@@ -134,13 +138,17 @@ export default function Navbar() {
                 </motion.div>
               ))}
               <motion.div variants={itemVariants}>
-                <Link
+                <Button
                   to="/get-started"
-                  className="block bg-black text-white text-sm px-5 py-2 rounded-full hover:opacity-90 transition-colors duration-200 text-center"
+                  variant="primary"
+                  size="sm"
+                  pill
+                  fullWidth
+                  className="text-center"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Get Started
-                </Link>
+                </Button>
               </motion.div>
             </motion.div>
           </motion.div>

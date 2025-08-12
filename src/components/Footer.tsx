@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaTwitter, FaInstagram, FaLinkedin, FaDribbble } from "react-icons/fa";
+import Button from "./Button";
 
 export default function Footer() {
   return (
@@ -17,12 +18,14 @@ export default function Footer() {
             Let&apos;s create <span className="text-blue-600">something</span><br />
             awesome <span className="text-blue-600">together!</span>
           </p>
-          <Link
+          <Button
             to="/get-started"
-            className="inline-block mt-5 px-5 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition-all duration-200 hover:scale-105"
+            variant="accent"
+            size="sm"
+            className="mt-5 hover:scale-105 transition-transform"
           >
             Get Started
-          </Link>
+          </Button>
         </div>
 
         {/* Pages */}
