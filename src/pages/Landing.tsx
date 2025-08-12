@@ -7,12 +7,14 @@ import UsersLoveSection from "../components/LandingPage/UsersLoveSection";
 import Testimonials from "../components/LandingPage/Testimonials";
 import FAQSection from "../components/LandingPage/FAQSection";
 import FinalCTA from "../components/LandingPage/FinalCTA";
+import DashboardSection from "../components/LandingPage/DashboardSection";
 
 const ZordieLandingPage = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
       <Hero />
+      <DashboardSection/>
       <ZordieSection />
       <IntegerationSection />
       <UsersLoveSection />
